@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Northstar Bank — banking made simple." />
+  <title>Northstar Bank | Banking made simple</title>
+  <style>
+    :root { --ink:#10251e; --muted:#5e7169; --mint:#d8f6d1; --lime:#b7ef52; --cream:#f8f7f1; --line:#dce5df; --white:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--cream); }
+    a { color:inherit; text-decoration:none; }
+    .nav { height:78px; display:flex; align-items:center; justify-content:space-between; max-width:1180px; margin:auto; padding:0 28px; }
+    .brand { font-weight:800; font-size:1.25rem; letter-spacing:-.06em; display:flex; align-items:center; gap:9px; }
+    .brand-mark { width:27px; height:27px; border-radius:50% 50% 50% 7px; background:var(--lime); transform:rotate(-45deg); display:inline-block; }
+    .links { display:flex; align-items:center; gap:30px; font-size:.9rem; font-weight:600; }
+    .links a:hover { color:#578323; }
+    .nav-actions { display:flex; gap:10px; align-items:center; }
+    .button { border:0; padding:12px 18px; border-radius:999px; font-weight:750; font-size:.88rem; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; transition:transform .18s, background .18s; }
+    .button:hover { transform:translateY(-2px); }
+    .button-dark { background:var(--ink); color:white; }
+    .button-light { background:white; color:var(--ink); border:1px solid var(--line); }
+    .hero { max-width:1180px; min-height:570px; margin:0 auto 58px; padding:76px 75px; border-radius:28px; overflow:hidden; position:relative; background:var(--mint); }
+    .hero-copy { position:relative; max-width:555px; z-index:2; }
+    .eyebrow { display:inline-flex; background:rgba(255,255,255,.65); border:1px solid rgba(16,37,30,.08); padding:8px 12px; border-radius:99px; font-size:.76rem; font-weight:800; letter-spacing:.04em; }
+    h1 { font-size:clamp(3.2rem,6vw,5.7rem); line-height:.94; letter-spacing:-.08em; margin:20px 0; font-weight:850; }
+    .hero p { max-width:460px; color:#385348; font-size:1.06rem; line-height:1.6; margin-bottom:28px; }
+    .hero .button { background:var(--ink); color:white; padding:15px 22px; }
+    .hero-art { position:absolute; right:-11px; bottom:-56px; width:540px; height:540px; border-radius:50%; background:#b9eb58; }
+    .hero-art::before { content:""; position:absolute; width:370px; height:370px; right:86px; top:62px; border-radius:50%; background:#fff9e9; }
+    .card { position:absolute; z-index:1; right:115px; top:137px; width:287px; height:180px; padding:24px; border-radius:18px; color:white; background:linear-gradient(135deg,#193c2f,#295d47); box-shadow:0 25px 40px rgba(23,66,45,.22); transform:rotate(10deg); }
+    .card::after { content:""; position:absolute; width:85px; height:85px; border-radius:50%; background:rgba(183,239,82,.8); right:19px; bottom:17px; }
+    .card-logo { display:flex; align-items:center; gap:7px; font-size:.74rem; font-weight:800; }
+    .card-num { position:absolute; left:24px; bottom:53px; letter-spacing:.11em; font-size:1.05rem; }
+    .card-name { position:absolute; left:24px; bottom:25px; font-size:.64rem; letter-spacing:.06em; opacity:.8; }
+    .chip { margin-top:33px; height:24px; width:34px; background:linear-gradient(90deg,#d3c078,#f9e8aa,#c5aa57); border-radius:5px; }
+    .numbers { max-width:1080px; margin:0 auto 80px; display:grid; grid-template-columns:repeat(3,1fr); text-align:center; }
+    .stat { padding:10px 30px; border-right:1px solid var(--line); }
+    .stat:last-child { border:0; }
+    .stat strong { display:block; font-size:2.2rem; letter-spacing:-.07em; }
+    .stat span { color:var(--muted); font-size:.88rem; }
+    .section { max-width:1180px; margin:0 auto 90px; padding:0 20px; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:28px; }
+    h2 { font-size:clamp(2rem,3.8vw,3.3rem); line-height:1.03; letter-spacing:-.065em; margin:0; max-width:540px; }
+    .section-head p { color:var(--muted); max-width:300px; line-height:1.55; margin:0; }
+    .products { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .product { min-height:250px; padding:27px; background:var(--white); border-radius:18px; border:1px solid #edf0ed; position:relative; overflow:hidden; }
+    .product h3 { font-size:1.22rem; margin:20px 0 9px; letter-spacing:-.04em; }
+    .product p { color:var(--muted); font-size:.91rem; line-height:1.5; max-width:230px; }
+    .icon { display:grid; place-items:center; width:45px; height:45px; border-radius:13px; background:var(--mint); font-size:1.3rem; }
+    .arrow { position:absolute; right:24px; bottom:23px; font-size:1.2rem; border:1px solid var(--line); width:34px; height:34px; border-radius:50%; display:grid; place-items:center; }
+    .app-callout { max-width:1180px; margin:0 auto 80px; padding:0 20px; }
+    .app-panel { background:var(--ink); border-radius:25px; min-height:350px; color:white; position:relative; overflow:hidden; padding:58px 60px; }
+    .app-panel h2 { max-width:440px; }
+    .app-panel p { max-width:380px; color:#c6d5ce; line-height:1.55; }
+    .download { margin-top:25px; display:flex; gap:10px; }
+    .store { font-size:.78rem; display:flex; flex-direction:column; align-items:flex-start; padding:9px 15px; background:white; color:var(--ink); border-radius:9px; line-height:1.15; }
+    .store b { font-size:.93rem; }
+    .phone { position:absolute; right:105px; bottom:-108px; width:230px; height:430px; padding:14px; border-radius:29px; background:#f7f7ef; box-shadow:0 0 0 8px #31483d; color:var(--ink); transform:rotate(10deg); }
+    .phone-top { height:22px; width:76px; background:#31483d; border-radius:0 0 13px 13px; margin:-14px auto 20px; }
+    .phone-card { background:#cbf279; padding:18px; border-radius:14px; }
+    .phone-card small,.balance-label { font-size:.67rem; color:#42602f; } .balance { font-weight:800; font-size:1.6rem; letter-spacing:-.06em; margin:5px 0 14px; }
+    .phone-row { display:flex; justify-content:space-between; padding:15px 2px; font-size:.75rem; border-bottom:1px solid #e0e4dd; }
+    footer { border-top:1px solid var(--line); padding:36px 28px; display:flex; max-width:1180px; margin:auto; justify-content:space-between; color:var(--muted); font-size:.8rem; }
+    @media (max-width:760px) { .links { display:none; } .nav { padding:0 20px; } .nav-actions .button-light { display:none; } .hero { border-radius:0; padding:58px 26px 285px; margin-bottom:42px; } .hero-art { right:50%; transform:translateX(50%); width:380px; height:380px; bottom:-150px; } .card { right:50%; transform:translateX(50%) rotate(8deg); top:auto; bottom:53px; width:260px; } .numbers { margin-bottom:55px; } .stat { padding:6px 12px; } .stat strong { font-size:1.6rem; } .products { grid-template-columns:1fr; } .section-head { display:block; } .section-head p { margin-top:16px; } .app-panel { padding:42px 28px 250px; } .phone { right:50%; transform:translateX(50%) rotate(5deg); bottom:-145px; } footer { display:block; line-height:2; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="#" class="brand"><span class="brand-mark"></span>northstar</a>
+    <div class="links"><a href="#banking">Banking</a><a href="#cards">Cards</a><a href="#about">About us</a><a href="#help">Help</a></div>
+    <div class="nav-actions"><a class="button button-light" href="#login">Log in</a><a class="button button-dark" href="#open">Open an account</a></div>
+  </nav>
+  <main>
+    <section class="hero">
+      <div class="hero-copy"><span class="eyebrow">●  Banking that moves with you</span><h1>Your money,<br>made simple.</h1><p>Feel good about your finances with smart tools, no monthly fees, and support from real people whenever you need it.</p><a class="button" href="#open">Start banking today&nbsp; →</a></div>
+      <div class="hero-art"></div><div class="card"><div class="card-logo"><span class="brand-mark" style="width:15px;height:15px"></span>northstar</div><div class="chip"></div><div class="card-num">•••• &nbsp; 4820</div><div class="card-name">ALEX MORGAN</div></div>
+    </section>
+    <section class="numbers"><div class="stat"><strong>$0</strong><span>monthly account fee</span></div><div class="stat"><strong>4.50%</strong><span>annual percentage yield</span></div><div class="stat"><strong>24/7</strong><span>help from real humans</span></div></section>
+    <section class="section" id="banking"><div class="section-head"><h2>Everything you need to get ahead.</h2><p>Simple products designed around the way you actually live, save and spend.</p></div><div class="products"><article class="product"><div class="icon">◒</div><h3>Spend freely</h3><p>Stay on top of everyday spending with a debit card and instant transaction alerts.</p><span class="arrow">↗</span></article><article class="product" id="cards"><div class="icon">⌁</div><h3>Save effortlessly</h3><p>Set a goal, automate deposits and watch every little bit add up.</p><span class="arrow">↗</span></article><article class="product"><div class="icon">⌁</div><h3>Grow confidently</h3><p>Make your money work harder with our high-yield savings account.</p><span class="arrow">↗</span></article></div></section>
+    <section class="app-callout"><div class="app-panel"><h2>The bank in your pocket.</h2><p>Check balances, move money, freeze your card and more — all from an app that keeps things refreshingly clear.</p><div class="download"><a href="#" class="store"><span>Download on the</span><b>App Store</b></a><a href="#" class="store"><span>GET IT ON</span><b>Google Play</b></a></div><div class="phone"><div class="phone-top"></div><small>Good morning, Alex</small><div class="phone-card"><div class="balance-label">TOTAL BALANCE</div><div class="balance">$12,480.50</div><small>•••• 4820</small></div><div class="phone-row"><span>☕ Coffee shop</span><span>−$4.50</span></div><div class="phone-row"><span>↙ Deposit</span><span style="color:#5d8c27">+$2,400.00</span></div></div></div></section>
+  </main>
+  <footer><span>© 2026 Northstar Bank. Member FDIC.</span><span>Privacy &nbsp; · &nbsp; Terms &nbsp; · &nbsp; Accessibility</span></footer>
+</body>
+</html>
